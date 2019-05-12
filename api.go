@@ -37,7 +37,7 @@ func (pool *Pool) Grow(delta uint) {
 }
 
 func (pool *Pool) Shrink(delta uint) {
-	if delta > pool.size {
+	if delta >= pool.size {
 		pool.killAll()
 	} else {
 		pool.killSome(int(delta))
